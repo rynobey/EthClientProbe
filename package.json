@@ -1,0 +1,14 @@
+{
+  "name": "quorumnetworkprobe",
+  "version": "1.0.0",
+  "description": "A light-weight probe for monitoring a remote host for performance testing purposes. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "R.D. Beyers",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
