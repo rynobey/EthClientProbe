@@ -1,3 +1,4 @@
+#!/bin/bash
 loadavg_1m=`cat /proc/loadavg | awk '{print $1}'`
 loadavg_5m=`cat /proc/loadavg | awk '{print $2}'`
 loadavg_15m=`cat /proc/loadavg | awk '{print $3}'`
