@@ -1,6 +1,6 @@
+const config = require('./config.js');
 const express = require('express');
 const app = express();
-const port = 8001;
 var spawn = require('child_process').spawn;
 var children = [];
 
@@ -15,6 +15,6 @@ children.push(spawn('./diskUtilizationUpdater.sh'));
 
 require('./routes.js')(app);
   
-app.listen(port, function() {
-  console.log('Listening on ' + port);
+app.listen(config.port, function() {
+  console.log('Listening on ' + config.port);
 });
