@@ -1,3 +1,4 @@
+const config = require('./config.js');
 const { execSync } = require('child_process');
 
 module.exports = function(app) {
@@ -12,7 +13,7 @@ module.exports = function(app) {
     let cpuStatsArr = cpuStats.toString().split(',');
     let memStats = execSync('./memStats.sh');
     let memStatsArr = memStats.toString().split(',');
-    let diskStats = execSync('./diskStats.sh');
+    let diskStats = execSync('./diskStats.sh ' + config.blockchainData);
     let diskStatsArr = diskStats.toString().split(',');
   
     let responseObj = {
