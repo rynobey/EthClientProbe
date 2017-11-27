@@ -42,6 +42,10 @@ module.exports = function(app) {
         kBpsWrite: diskStatsArr[5]
       }
     }
+
+    if (diskStatsArr.length == 7) {
+      responseObj.diskStats.chaindataSizekB = diskStatsArr[6];
+    }
   
     res.send(responseObj);
   });
