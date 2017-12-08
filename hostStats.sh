@@ -12,10 +12,10 @@ kBps_wrtn=`cat diskUtilization.tmp | tail -2 | head -1 | awk '{print $7}'`
 if [ "$#" == 1 ]
 then
   chaindata=`du -c $1 | tail -1 | awk '{print $1}'`
-  timestamp=`date +%s%N | cut -b1-13`
-  printf "$timestamp,$num_cpus,$memTot,$cpu_utilization,$loadavg_1m,$memAvail,$iowait,$await,$svctm,$kBps_read,$kBps_wrtn,$chaindata"
+  statsTimestamp=`date +%s%N | cut -b1-13`
+  printf "$statsTimestamp,$num_cpus,$memTot,$cpu_utilization,$loadavg_1m,$memAvail,$iowait,$await,$svctm,$kBps_read,$kBps_wrtn,$chaindata"
 
 else
   timestamp=`date +%s%N | cut -b1-13`
-  printf "$timestamp,$num_cpus,$memTot,$cpu_utilization,$loadavg_1m,$memAvail,$iowait,$await,$svctm,$kBps_read,$kBps_wrtn"
+  printf "$statsTimestamp,$num_cpus,$memTot,$cpu_utilization,$loadavg_1m,$memAvail,$iowait,$await,$svctm,$kBps_read,$kBps_wrtn"
 fi

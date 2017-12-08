@@ -29,7 +29,7 @@ module.exports = function(app) {
       diskkBpsWrite: hostStatsArr[10]
     }
 
-    if (hostStatsArr.length == 11) {
+    if (hostStatsArr.length == 12) {
       responseObj.chaindataSizekB = hostStatsArr[11];
     }
   
