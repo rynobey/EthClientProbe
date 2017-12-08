@@ -9,42 +9,28 @@ module.exports = function(app) {
       requestTimestamp = req.query.requestTimestamp;
     }
   
-    let cpuStats = execSync('./cpuStats.sh');
-    let cpuStatsArr = cpuStats.toString().split(',');
-    let memStats = execSync('./memStats.sh');
-    let memStatsArr = memStats.toString().split(',');
-    let diskStats = execSync('./diskStats.sh ' + config.blockchainData);
-    let diskStatsArr = diskStats.toString().split(',');
+    let hostStats = execSync('./hostStats.sh ' + config.blockchainData);
+    let hostStatsArr = hostStats.toString().split(',');
   
     let responseObj = {
       requestTimestamp: requestTimestamp,
       requestReceivedTimestamp: requestReceivedTimestamp,
       responseTimestamp: Date.now(),
-      cpuStats: {
-        timestamp: cpuStatsArr[0],
-        numCpus: cpuStatsArr[1],
-        utilization: cpuStatsArr[2],
-        loadAvg1m: cpuStatsArr[3],
-        loadAvg5m: cpuStatsArr[4],
-        loadAvg15m: cpuStatsArr[5]
-      },
-      memStats: {
-        timestamp: memStatsArr[0],
-        kBAvailable: memStatsArr[1],
-        kBTotal: memStatsArr[2]
-      },
-      diskStats: {
-        timestamp: diskStatsArr[0],
-        iowait: diskStatsArr[1],
-        await: diskStatsArr[2],
-        svctm: diskStatsArr[3],
-        kBpsRead: diskStatsArr[4],
-        kBpsWrite: diskStatsArr[5]
-      }
+      statsTimestamp: hostStatsArr[0],
+      numCpus: hostStatsArr[1],
+      memkBTot: hostStatsArr[2],
+      utilization: hostStatsArr[3],
+      loadAvg1m: hostStatsArr[4],
+      memkBAvail: hostStatsArr[5],
+      iowait: hostStatsArr[6],
+      await: hostStatsArr[7],
+      svctm: hostStatsArr[8],
+      diskkBpsRead: hostStatsArr[9],
+      diskkBpsWrite: hostStatsArr[10]
     }
 
-    if (diskStatsArr.length == 7) {
-      responseObj.diskStats.chaindataSizekB = diskStatsArr[6];
+    if (hostStatsArr.length == 11) {
+      responseObj.chaindataSizekB = hostStatsArr[11];
     }
   
     res.send(responseObj);
