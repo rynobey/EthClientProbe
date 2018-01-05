@@ -1,3 +1,7 @@
 #!/bin/bash
-apt-get install cpustat
-apt-get install sysstat
+chmod +x diskUtilizationUpdater.sh
+chmod +x cpuUtilizationUpdater.sh
+chmod +x hostStats.sh
+
+sudo apt-get install cpustat
+sudo apt-get install sysstat
