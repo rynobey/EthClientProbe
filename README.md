@@ -9,7 +9,7 @@ Statistics are measured using well-known tools (sysstat, cpustat) and returned w
 ## How do I install it?
 ```
 git clone https://github.com/rynobey/EthClientProbe.git
-cd EthClientTester
+cd EthClientProbe
 npm install
 chmod +x setup.sh
 ./setup.sh
