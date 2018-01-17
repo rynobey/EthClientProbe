@@ -1,7 +1,7 @@
 var config = {}
 
 // http server listening port
-config.port = 8001;
+config.port = 8010;
 
 // local stats update time (itime over which stats will be averaged) in seconds
 config.period = 5;
