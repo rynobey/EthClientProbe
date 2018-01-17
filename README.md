@@ -20,4 +20,4 @@ To start listening for requests for resource stats:
 ```
 node server.js
 ```
-This will start an http server that listens on port 8001 by default.
+This will start an http server that listens on port 8010 by default.
